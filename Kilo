@@ -1,0 +1,11 @@
+func calculateMA(crashPoints: [Double], windowSize: Int) -> Double? {
+    guard crashPoints.count >= windowSize else { return nil }
+    let window = crashPoints.suffix(windowSize)
+    return window.reduce(0, +) / Double(windowSize)
+}
+
+// Example usage
+let crashPoints: [Double] = [1.2, 1.5, 2.1, 1.8, 2.5]
+if let ma = calculateMA(crashPoints: crashPoints, windowSize: 3) {
+    print("MA: \(ma)")
+}
